@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        h1{
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        color: #333;
+    }
+    h2{
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        color: #333;
+    }
+    h3{
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        color: #333;
+    }
+    h4{
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        color: #333;
+    }
+    h5{
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        color: #333;
+    }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+</head>
+<body>
+    <center>
+        <h1 id="mensaje"></h1> 
+        <h2 id="idk"></h2> 
+        <h3 id ="fchn"></h3>
+        <h4>Correo:<a href="mailto:correo" id="correo"></a></h4>
+        <h5>Telefono: <a href="tel:telefono" id="telefono"></a></h5>
+       
+
+    </center>
+  
+   <script>
+    getParameter = (key)=> {
+        address = window.location.search;
+        parameterList = new URLSearchParams (address);
+        return parameterList.get(key);
+    }
+    console.log(getParameter("Nombre"));
+    var Nombre = getParameter("Nombre");
+    if(Nombre!=null){
+            document.getElementById("mensaje").innerHTML = Nombre;
+        }
+
+        console.log(getParameter("Apellidos"));
+    var Apellidos = getParameter("Apellidos");
+    if(Apellidos!=null){
+            document.getElementById("idk").innerHTML = Apellidos;
+        }
+
+        var edad = getParameter("fecha de nacimiento");
+        var arreglo = edad.split("-");
+        var edad = arreglo[0];
+        if (edad < 2023){
+            document.getElementById("fchn").innerHTML = "Tu edad: " + (2023 - edad) + " años";
+        }
+     
+        console.log(getParameter("password"));
+        var password = getParameter("password");
+        if (password.length < 5) {
+        alert('¡La contraseña es insegura! Debe tener al menos 5 caracteres.');
+  }
+
+  console.log(getParameter("correo"));
+        var nombre = getParameter("correo");
+        if (nombre != null) {
+            document.getElementById("correo").innerHTML = nombre;
+        }
+        
+        console.log(getParameter("telefono"));
+        var telefono = getParameter("telefono");
+        if (telefono != null) {
+            document.getElementById("telefono").innerHTML = telefono;
+        }
+ </script>
+</body>
+</html>
