@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        label {
+          display: block;
+          margin-bottom: 10px;
+          font-weight: bold;
+          padding: 10px;
+          font-size: 16px;
+         font-family: Arial, sans-serif;
+         color: #333;
+         font-weight: bold;
+  
+        }
+
+        input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    input[type="text"] {
+      padding: 10px 20px;
+      color: rgb(0, 0, 0);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    input[type="number"] {
+      padding: 10px 20px;
+      color: rgb(0, 0, 0);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      
+      box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.3);
+    }
+    
+    input[type="date"] {
+      padding: 10px 20px;
+      color: rgb(0, 0, 0);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    input[type="password"] {
+      padding: 10px 20px;
+      color: rgb(0, 0, 0);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    h1{
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        color: #333;
+    }
+      </style>
+
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Registro</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+</head>
+<body>
+    <center>
+        <h1>Formulario de registro</h1>
+        <form action="Registro.html" method="get">
+       <label>Nombre:</label> <input type="text" name="Nombre"><br><br>
+       <label>Apellidos:</label> <input type="text" name="Apellidos"><br><br>
+       <label>Correo:</label> <input type="text" name="correo" id="correo"><br><br>
+       <label>Fecha de nacimiento:</label> <input type="date" name="fecha de nacimiento"><br><br>
+       <label>Telefono:</label> <input type="number" name="telefono" id="telefono"><br><br>
+       <label>Usuario:</label> <input type="text" name="Usuario"><br><br>
+       <label>Contraseña:</label> <input type="password" name="password" id="password" required><br><br>
+       <label>Repetir contraseña:</label> <input type="password" name="password2"><br><br>
+
+       <input type="submit" value="Registrar Formulario">
+    </form>
+    </center>
+    
+
+     <script>
+        getParameter = (key)=> {
+            address = window.location.search;
+            parameterList = new URLSearchParams (address);
+            return parameterList.get(key);
+        }
+        console.log(getParameter("Nombre"));
+        var Nombre = getParameter("Nombre");
+        if(Nombre!=null){
+            document.getElementById("mensaje").innerHTML = Nombre;
+        }
+        
+        console.log(getParameter("Apellidos"));
+        var Apellidos = getParameter("Apellidos");
+        if(Apellidos!=null){
+            document.getElementById("idk").innerHTML = Apellidos;
+        }
+
+        var edad = getParameter("fecha de nacimiento");
+        var arreglo = edad.split("-");
+        var edad = arreglo[0];
+        if (edad < 2023){
+            document.getElementById("fchn").innerHTML = "Tienes " + (2023 - edad) + " años";
+        }
+
+        
+
+     </script>
+</body>
+</html>
